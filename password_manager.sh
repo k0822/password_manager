@@ -4,12 +4,14 @@ add_password(){
 	read -p "サービス名を入力してください：" service
 	read -p "ユーザー名を入力してください：" username
 	read -p "パスワードを入力してください：" password
+
 	echo "$service:$username:$password" >> passwords.txt
 	echo パスワードの追加は成功しました。
 }
 
 get_password(){
 	read -p "サービス名を入力してください：" target_service
+
 	password_info=$(grep "$target_service:" passwords.txt)
 	service=$(echo "$password_info" | cut -d ":" -f 1)
 	username=$(echo "$password_info" | cut -d ":" -f 2)
