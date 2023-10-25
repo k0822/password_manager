@@ -22,10 +22,10 @@ get_password(){
 while true; do
 	read -p "次の選択肢から入力してください(Add Password/Get Password/Exit)：" action
 	
-	case $action in
-		Add Password) add_password;;
-		Get Password) get_password;;
-		Exit) echo Thank you!
+	case "$action" in
+		"Add Password") add_password;;
+		"Get Password") get_password;;
+		"Exit") echo Thank you!
 		      exit 0;;
 		*) echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 	esac
